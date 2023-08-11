@@ -1,0 +1,73 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Customer Form - Your App{% endblock %}
+
+{% block content %}
+<div class="video-background">
+    <video autoplay muted loop id="video-background">
+        <source src="{% static 'images/bg.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="overlay-content">
+    <div class="cover-container d-flex w-100 h-100 py-5 mx-auto flex-column">
+     <main class="px-3">
+        <div class="container" id="welcomepage">
+            <div class="d-flex justify-content-center">
+                <div class="rounded-circle overflow-hidden">
+                    <img src="{% static 'images/5-jobdogg.png' %}" alt="Logo" class="img-fluid" width="150" height="150">
+                </div>
+            </div>
+            
+            <h2>Welcome to Jobdogg</h2>
+            <p class="lead py-2 mx-4 px-2 text-bold">
+                We are really happy to have you and work with you.
+                Creating your contact information could be the best action you take right now,
+                and it could be the starting key for future success.
+            </p>
+            <!-- Button trigger modal -->
+                <button type="button" id="showModalButton" class="btn btn-lg btn-outline-light fw-bold border-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Create Your Contact Information
+                </button>
+            </p>
+        </div>
+        
+      </main>
+    </div>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fs-5" id="staticBackdropLabel">{% if form.instance.pk %}Edit{% else %}Add{% endif %} Contact Information</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="px-2">
+                
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    
+                    <div class="d-grid gap-2 d-md-block text-center">
+                        <button type="submit" id="submitForm" class="btn btn-sm btn-outline-info px-5">Submit</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
+
+{% endblock %}

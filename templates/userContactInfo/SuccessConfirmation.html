@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}success Confirmation{% endblock %}
+
+{% block content %}
+<div class="video-background">
+    <video autoplay muted loop id="video-background">
+        <source src="{% static 'images/bg.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="overlay-content">
+    <div class="cover-container d-flex w-100 h-100 py-5 mx-auto flex-column">
+     <main class="px-3">
+        <div class="container" id="welcomepage">
+            
+            <h1>CONGRATULATIONS! YOU DID IT!</h1>
+            <h3>You have successfully created your contact information.</h3>
+            <p class="lead">
+                We will get in touch with you soon with our newly sophisticated user-friendly app.
+            </p>
+            <img src="{% static 'images/homeSnape.png' %}" alt="Logo" class="img-fluid" width="400" height="30"/>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  
+  
+
+  
+</body>
+</html>
+
+{% endblock %}

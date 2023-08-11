@@ -1,8 +1,41 @@
 {% extends "_base.html" %}
-
+{% load static %}
 {% block title %}Customer List - Your App{% endblock %}
 
 {% block content %}
-    <h1>Customer List</h1>
-    <!-- Your customer list content here -->
+
+   <h1>Customer List</h1>
+   <div class="table-responsive">
+    <table class="table">
+   
+       <thead>
+           <tr>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Email</th>
+               <th>Phone Number</th>
+               <th>Address</th>
+               <th>Actions</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for customer in customer_list %}
+               <tr>
+                   <td>{{ customer.first_name }}</td>
+                   <td>{{ customer.last_name }}</td>
+                   <td>{{ customer.email }}</td>
+                   <td>{{ customer.phone_number }}</td>
+                   <td>{{ customer.address }}</td>
+                   <td>
+                       <a href="{% url 'userContactInfo:customer-detail' customer.slug %}" class="btn btn-sm btn-primary">View</a>
+                       <a href="{% url 'userContactInfo:customer-update' customer.slug %}" class="btn btn-sm btn-success">Edit</a>
+                       <a href="{% url 'userContactInfo:customer-delete' customer.slug %}" class="btn btn-sm btn-danger">Delete</a>
+                   </td>
+               </tr>
+           {% endfor %}
+       </tbody>
+    </table>
+   </div>
+   <a href="{% url 'userContactInfo:customer-create' %}" class="btn btn-primary">Add Customer</a>
 {% endblock %}
+
