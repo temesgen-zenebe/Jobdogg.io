@@ -1,41 +1,52 @@
 {% extends "_base.html" %}
 {% load static %}
-{% block title %}Customer List - Your App{% endblock %}
+{% block title %}user Contact Info List {% endblock %}
 
 {% block content %}
-
-   <h1>Customer List</h1>
-   <div class="table-responsive">
-    <table class="table">
+<div class="container">
+<div class="card">
+    <div class="card-header d-flex justify-content-between ">
+        <h6 class="">User Contact Information List</h6>
+        <a href="{% url 'userContactInfo:customer-create' %}" class="btn btn-sm btn-outline-info">Add Customer</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-sm table-hover">
+           
+               <thead>
+                   <tr>
+                       <th>#</th>
+                       <th>First Name</th>
+                       <th>Last Name</th>
+                       <th>Email</th>
+                       <th>Phone Number</th>
+                       <th>Address</th>
+                       <th>Actions</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {% for customer in customer_list %}
+                       <tr>
+                           <td>{{ forloop.counter }}</td>
+                           <td>{{ customer.first_name }}</td>
+                           <td>{{ customer.last_name }}</td>
+                           <td>{{ customer.email }}</td>
+                           <td>{{ customer.phone_number }}</td>
+                           <td>{{ customer.address }}</td>
+                           <td>
+                               <a href="{% url 'userContactInfo:customer-detail' customer.slug %}" class="btn btn-sm btn-outline-primary"><i class="bi bi-binoculars"></i></a>
+                               <a href="{% url 'userContactInfo:customer-update' customer.slug %}" class="btn btn-sm btn-outline-success"><i class="bi bi-pen"></i></a>
+                               <a href="{% url 'userContactInfo:customer-delete' customer.slug %}" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></a>
+                           </td>
+                       </tr>
+                   {% endfor %}
+               </tbody>
+            </table>
+           </div>
+          
+    </div>
+  </div>
+</div>  
    
-       <thead>
-           <tr>
-               <th>First Name</th>
-               <th>Last Name</th>
-               <th>Email</th>
-               <th>Phone Number</th>
-               <th>Address</th>
-               <th>Actions</th>
-           </tr>
-       </thead>
-       <tbody>
-           {% for customer in customer_list %}
-               <tr>
-                   <td>{{ customer.first_name }}</td>
-                   <td>{{ customer.last_name }}</td>
-                   <td>{{ customer.email }}</td>
-                   <td>{{ customer.phone_number }}</td>
-                   <td>{{ customer.address }}</td>
-                   <td>
-                       <a href="{% url 'userContactInfo:customer-detail' customer.slug %}" class="btn btn-sm btn-primary">View</a>
-                       <a href="{% url 'userContactInfo:customer-update' customer.slug %}" class="btn btn-sm btn-success">Edit</a>
-                       <a href="{% url 'userContactInfo:customer-delete' customer.slug %}" class="btn btn-sm btn-danger">Delete</a>
-                   </td>
-               </tr>
-           {% endfor %}
-       </tbody>
-    </table>
-   </div>
-   <a href="{% url 'userContactInfo:customer-create' %}" class="btn btn-primary">Add Customer</a>
 {% endblock %}
 

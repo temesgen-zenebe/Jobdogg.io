@@ -3,12 +3,19 @@
 {% block title %}Customer Detail - Your App{% endblock %}
 
 {% block content %}
-    <h1>Customer Detail</h1>
-    <p><strong>Name:</strong> {{ customer.first_name }} {{ customer.last_name }}</p>
-    <p><strong>Email:</strong> {{ customer.email }}</p>
-    <p><strong>Phone Number:</strong> {{ customer.phone_number }}</p>
-    <p><strong>Address:</strong> {{ customer.address }}</p>
-
-    <a href="{% url 'userContactInfo:customer-update' customer.slug %}" class="btn btn-primary">Edit</a>
-    <a href="{% url 'userContactInfo:customer-delete' customer.slug %}" class="btn btn-danger">Delete</a>
+<div class="container mx-auto">
+    <div class="card">
+        <h5 class="card-header">Customer Detail</h5>
+        <div class="card-body">
+            <p><strong>Name:</strong> {{ customer.first_name }} {{ customer.last_name }}</p>
+            <p><strong>Email:</strong> {{ customer.email }}</p>
+            <p><strong>Phone Number:</strong> {{ customer.phone_number }}</p>
+            <p><strong>Address:</strong> {{ customer.address }}</p>        
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'userContactInfo:customer-update' customer.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
+            <a href="{% url 'userContactInfo:customer-delete' customer.slug %}" class="btn btn-sm btn-outline-danger">Delete</a>
+        </div>
+    </div>  
+</div>
 {% endblock %}

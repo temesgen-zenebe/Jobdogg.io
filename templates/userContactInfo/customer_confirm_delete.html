@@ -3,11 +3,24 @@
 {% block title %}Confirm Delete - Your App{% endblock %}
 
 {% block content %}
-    <h1>Confirm Delete</h1>
-    <p>Are you sure you want to delete customer "{{ object.first_name }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-    <a href="{% url 'userContactInfo:customer-list' %}" class="btn btn-secondary mt-2">Cancel</a>
+<div class="container">
+    <div class="card text-center mx-auto">
+        <div class="card-header">
+            <h5 class="card-title"> Confirm Delete </h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Are you sure you want to delete customer "{{ object.first_name }}"?</h6>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="btn-group gap-3 my-3">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    <a href="{% url 'userContactInfo:customer-list' %}" class="btn btn-sm btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+        
+      </div>
+</div>
 {% endblock %}
