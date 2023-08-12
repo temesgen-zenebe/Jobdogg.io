@@ -4,7 +4,26 @@
 {% block title %}Customer Form - Your App{% endblock %}
 
 {% block content %}
-<div class="video-background">
+<div class="container mx-auto bg-info" style="max-width:70%;">
+  <div class="card mx-auto ">
+     <div class="card-header text-body-info">
+         Create Customer Contact Info
+     </div>
+     <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            
+            <div class="d-grid gap-2 d-md-block text-center">
+                <button type="submit" id="submitForm" class="btn btn-sm btn-outline-info px-5">Submit</button>
+            </div>
+        </form>
+     </div>
+   </div>
+ </div>
+
+
+<!--<div class="video-background">
     <video autoplay muted loop id="video-background">
         <source src="{% static 'images/bg.mp4' %}" type="video/mp4">
       Your browser does not support the video tag.
@@ -26,7 +45,7 @@
                 Creating your contact information could be the best action you take right now,
                 and it could be the starting key for future success.
             </p>
-            <!-- Button trigger modal -->
+           
                 <button type="button" id="showModalButton" class="btn btn-lg btn-outline-light fw-bold border-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Create Your Contact Information
                 </button>
@@ -35,10 +54,10 @@
         
       </main>
     </div>
-  </div>
+  </div>-->
 
   
-  <!-- Modal -->
+  <!-- Modal 
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-md">
       <div class="modal-content">
@@ -63,10 +82,10 @@
        
       </div>
     </div>
-  </div>
+  </div>-->
 
   
-</body>
+</div>
 </html>
 
 {% endblock %}
