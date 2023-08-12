@@ -98,11 +98,11 @@ WSGI_APPLICATION = 'JobdoggUserInfo.wsgi.application'
      #   'NAME': BASE_DIR / 'db.sqlite3',
    # }
 #}
-
+database_url = os.environ.get("DATABASES_URL")
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://jobdogg_contact_information_user:lteQmbboCdnuG74UiG877lHenp5CuWML@dpg-cjb9uufdb61s73ffsa7g-a.oregon-postgres.render.com/jobdogg_contact_information',
+        default = database_url,
         conn_max_age=600
     )
 }
