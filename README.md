@@ -1,2 +1,2 @@
 # Jobdogg.io
- JobDogg.io single page web App that collate contact date from prospective user  
+ JobDogg.io single a page web App that collects contact data from the prospective customer   
