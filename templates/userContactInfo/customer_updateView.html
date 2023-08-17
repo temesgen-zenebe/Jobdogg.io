@@ -14,7 +14,7 @@
             {% csrf_token %}
             {{ form|crispy }}
             <div class="btn-group gap-3 py-3 ">
-                <button type="submit" class="btn btn-sm btn-outline-primary">Save Changes</button>
+                <!--<button type="submit" class="btn btn-sm btn-outline-primary">Save Changes</button>-->
                 <a href="{% url 'userContactInfo:customer-list' %}" class="btn btn-sm btn-outline-secondary ">Back to List</a>
             </div>
         </form>
