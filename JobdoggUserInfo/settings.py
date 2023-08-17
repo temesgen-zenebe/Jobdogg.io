@@ -98,6 +98,7 @@ WSGI_APPLICATION = 'JobdoggUserInfo.wsgi.application'
      #   'NAME': BASE_DIR / 'db.sqlite3',
    # }
 #}
+
 database_url = os.environ.get("DATABASES_URL")
 DATABASES = {
     'default': dj_database_url.config(
